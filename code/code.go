@@ -8,6 +8,12 @@ const (
 // Code is a general-purpose identifier type used for defining various targets (e.g., error codes, action codes, etc...).
 type Code string
 
+// Equal compares two Code values for equality.
+// Returns true if both Code values are the same.
+func (c Code) Equal(v Code) bool {
+	return c == v
+}
+
 // IsNil checks if the Code is an empty value (NilCode).
 func (c Code) IsNil() bool {
 	return c == NilCode
