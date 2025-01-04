@@ -5,5 +5,5 @@ type attributeKey uint
 
 const (
 	attributeKeyCode       attributeKey = 1 // Attribute key for error code.
-	attributeKeyHttpStatus attributeKey = 2 // Attribute key for HTTP status code.
+	attributeKeyHTTPStatus attributeKey = 2 // Attribute key for HTTP status code.
 )

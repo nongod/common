@@ -65,11 +65,11 @@ func FindErrorCode(err error) code.Code {
 	return code.NilCode
 }
 
-// GetHttpStatus retrieves the HTTP status code from an error implementing the httpStatusCoder interface.
+// GetHTTPStatus retrieves the HTTP status code from an error implementing the httpStatusCoder interface.
 // If the error does not implement the interface, it returns http.StatusInternalServerError.
-func GetHttpStatus(err error) int {
-	if errWithHttpStatus, ok := err.(httpStatusProvider); ok {
-		return errWithHttpStatus.httpStatus()
+func GetHTTPStatus(err error) int {
+	if errWithHTTPStatus, ok := err.(httpStatusProvider); ok {
+		return errWithHTTPStatus.httpStatus()
 	}
 
 	return http.StatusInternalServerError
@@ -119,14 +119,14 @@ func (e *customError) Code() code.Code {
 	return code.NilCode
 }
 
-// setHttpStatus sets the HTTP status code.
-func (e *customError) setHttpStatus(httpStatus int) {
-	e.attributes[attributeKeyHttpStatus] = httpStatus
+// setHTTPStatus sets the HTTP status code.
+func (e *customError) setHTTPStatus(httpStatus int) {
+	e.attributes[attributeKeyHTTPStatus] = httpStatus
 }
 
 // httpStatus retrieves the HTTP status code. If none is set, it returns http.StatusInternalServerError.
 func (e *customError) httpStatus() int {
-	if httpStatus, ok := e.attributes[attributeKeyHttpStatus].(int); ok {
+	if httpStatus, ok := e.attributes[attributeKeyHTTPStatus].(int); ok {
 		return httpStatus
 	}
 

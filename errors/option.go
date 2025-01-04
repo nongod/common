@@ -19,9 +19,9 @@ func WithCode(code code.Code) OptionFunc {
 	}
 }
 
-// WithHttpStatus sets an HTTP status code for the error.
-func WithHttpStatus(httpStatus int) OptionFunc {
+// WithHTTPStatus sets an HTTP status code for the error.
+func WithHTTPStatus(httpStatus int) OptionFunc {
 	return func(e *customError) {
-		e.setHttpStatus(httpStatus)
+		e.setHTTPStatus(httpStatus)
 	}
 }
